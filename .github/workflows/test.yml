@@ -7,12 +7,15 @@ jobs:
     steps:
       - run: echo "김영웅"
       - run: echo "990327"
-      - run: echo "gupo941020@naver.com"
-      - run: echo "01075743839"
-      - run: echo "창원시 거주"
-      - run: echo "창원대학교"
-      - run: echo "부산 출신"
-
+      - run: echo "gupo941020"
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
 
 
 
