@@ -17,12 +17,16 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: 11
+        distribution: 'adopt'
 
     - name: Build with Maven
       run: mvn --batch-mode --update-snapshots package
 
     - name: Run tests
       run: mvn -Dtest=Junitest test
+    
+    - name: Run Static Code Analysis
+      run: mvn spotbug:check
 
 
 
